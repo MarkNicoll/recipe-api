@@ -10,6 +10,4 @@ const pool = new Pool({
     port : process.env.DB_PORT
 })
 
-const client = pool;
-
-export default client;
+export default pool;
