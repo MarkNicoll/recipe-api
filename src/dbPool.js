@@ -1,4 +1,7 @@
 import Pool from 'pg-pool'
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const pool = new Pool({
     user: process.env.DB_USERNAME,
@@ -7,7 +10,5 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
     port : process.env.DB_PORT
 })
-
-console.log(process.env.DB_PASSWORD)
 
 export default pool;
