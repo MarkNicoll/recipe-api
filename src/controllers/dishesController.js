@@ -1,12 +1,10 @@
-import pool from '../dbPool';
+import pool from '../dbPool.js';
 
-module.exports = {
-    getDishes : function(req, res){
-        pool.connect(function(err) {
-            pool.query('SELECT * FROM public."dishes"', function(err, result) {
-               if (err) res.send(err);
-               if (result) res.send(result.rows);
-           });
-       });
-    }
+export const getDishes = (req, res) => {
+    pool.connect(function (err) {
+        pool.query('SELECT * FROM public."dishes"', function (err, result) {
+            if (err) res.send(err);
+            if (result) res.send(result.rows);
+        });
+    });
 }

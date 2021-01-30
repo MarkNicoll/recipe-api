@@ -1,12 +1,10 @@
-import pool from '../dbPool';
+import pool from '../dbPool.js';
 
-module.exports = {
-    getDays : function(req, res){
-        pool.connect(function(err) {
-            pool.query('SELECT * FROM public."days"', function(err, result) {
-                if (err) res.send(err);
-                if (result) res.send(result.rows);
-            });
+export const getDays = (req, res) => {
+    pool.connect(function (err) {
+        pool.query('SELECT * FROM public."days"', function (err, result) {
+            if (err) res.send(err);
+            if (result) res.send(result.rows);
         });
-    }
+    });
 }
