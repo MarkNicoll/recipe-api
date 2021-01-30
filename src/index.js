@@ -7,7 +7,7 @@ const app = express()
 const cors = require('cors');
 
 
-app.use(cors);
+app.use(cors());
 app.use('/recipeapi/', router);
 
 app.listen(process.env.PORT || 'localhost', 3000, function (err) {
