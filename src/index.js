@@ -1,11 +1,10 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
 import router from './routes.js';
 
 dotenv.config();
 const app = express()
-const cors = require('cors');
-
 
 app.use(cors());
 app.use('/recipeapi/', router);
