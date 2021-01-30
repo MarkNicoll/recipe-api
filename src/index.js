@@ -7,7 +7,7 @@ const app = express()
 
 app.use('/recipeapi/', router)
 
-app.listen(8000, 'localhost', function (err) {
+app.listen(process.env.PORT || 3000, 'localhost', function (err) {
     console.log('Listening...')
     if (err) {
       console.log(err);
