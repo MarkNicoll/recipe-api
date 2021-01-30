@@ -7,7 +7,7 @@ const routes = require('./routes');
 
 app.use('/recipeapi/', routes)
 
-app.listen(3000, 'localhost', function (err) {
+app.listen(8000, 'localhost', function (err) {
     console.log('Listening...')
     if (err) {
       console.log(err);
