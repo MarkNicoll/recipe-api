@@ -1,27 +1,21 @@
-import pool from "../dbPool.js";
+import client from "../dbClient.js";
 
 export const getDishes = (req, res) => {
-  pool.connect(function (err) {
-    pool.query('SELECT * FROM public."dishes"', function (err, result) {
+    client.query('SELECT * FROM public."dishes"', function (err, result) {
       if (err) res.send(err);
       if (result) res.send(result.rows);
     });
-  });
 };
 
 export const createDish = (req, res) => {
-  const name = req.body.dish.name;
-  const recipe = req.body.dish.recipe;
-  const source = req.body.dish.source;
+  const name = req.body.name;
+  const notes = req.body.source;
 
-  pool.connect(function (err) {
-    pool.query(
-      "INSERT INTO dishes(firstname, lastname, age, address, email)VALUES($1, $2, $3)",
-      [name, recipe, source],
-      (err, res) => {
-        if (err) res.send(err);
+    client.query(
+      "INSERT INTO dishes(name, notes)VALUES('" + name + "','" + notes + "')",
+      (err, result) => {
+        if (err) res.send(err.toString());
         if (result) res.send(result.rows);
       }
     );
-  });
 };

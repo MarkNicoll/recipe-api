@@ -5,8 +5,9 @@ import { getDays } from "./controllers/daysController.js";
 
 const router = express.Router();
 
-router.route('/dishes').get(getDishes);
-router.route('/dishes').post(createDish);
+router.route('/dishes').get(getDishes)
+    .post(createDish);
+    
 router.route('/categories').get(getCategories);
 router.route('/days').get(getDays);
 
