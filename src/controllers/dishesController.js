@@ -9,10 +9,10 @@ export const getDishes = (req, res) => {
 
 export const createDish = (req, res) => {
 
-  console.log(req.body)
-  const id = req.body.dish.id ? req.body.dish.id : null  
-  const name = req.body.dish.name;
-  const notes = req.body.dish.notes;
+  const dish = JSON.parse(req.body);
+  const id = dish.id ? req.body.dish.id : null  
+  const name = dish.name;
+  const notes =dish.notes;
 
     client.query(
       "REPLACE INTO dishes(id, name, notes)VALUES('" + id + "','" + name + "','" + notes + "')",
