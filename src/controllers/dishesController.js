@@ -12,7 +12,7 @@ export const createDish = (req, res) => {
   const notes = req.body.notes;
 
     client.query(
-      "INSERT INTO dishes(name, notes)VALUES('" + name + "','" + notes + "')",
+      "REPLACE INTO dishes(name, notes)VALUES('" + name + "','" + notes + "')",
       (err, result) => {
         if (err) res.send(err.toString());
         if (result) res.send(result.rows);
