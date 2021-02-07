@@ -9,7 +9,7 @@ export const getDishes = (req, res) => {
 
 export const createDish = (req, res) => {
 
-  const dish = JSON.parse(req.body);
+  const dish = req.body;
   const id = dish.id ? req.body.dish.id : null  
   const name = dish.name;
   const notes =dish.notes;
