@@ -8,11 +8,8 @@ export const getDishes = (req, res) => {
 };
 
 export const createDish = (req, res) => {
-console.log(req.body)
   const dish = req.body;
-  console.log(dish)
-
-  const id = dish.id ? req.body.dish.id : null  
+  const id = dish.id ? dish.id : null  
   const name = dish.name;
   const notes =dish.notes;
 
