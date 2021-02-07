@@ -9,7 +9,7 @@ export const getDishes = (req, res) => {
 
 export const createDish = (req, res) => {
   const name = req.body.name;
-  const notes = req.body.source;
+  const notes = req.body.notes;
 
     client.query(
       "INSERT INTO dishes(name, notes)VALUES('" + name + "','" + notes + "')",
