@@ -10,26 +10,21 @@ export const getDishes = (req, res) => {
 export const createDish = (req, res) => {
   const dish = req.body;
   const id = dish.id ? dish.id : null;
-  const name = dish.name;
-  const notes = dish.notes;
+  const nameQueryParam = dish.name ? "'" + dish.name + "'" : null;
+  const notesQueryParam = dish.notes ? "'" + dish.notes + "'" : null;
   let query;
 
   if (!id) {
     query =
-      "INSERT INTO dishes(name, notes)VALUES('"
-      name +
-      "','" +
-      notes +
-      "')";
+      "INSERT INTO dishes(name, notes)VALUES(" + nameQueryParam + notesQueryParam + ")";
   } else {
     query =
-      "UPDATE public.dishes SET name='" +
-      name +
-      "', notes='" +
-      notes +
-      "' WHERE id = '" +
+      "UPDATE public.dishes SET name=" +
+      nameQueryParam +
+      ", notes=" + notesQueryParam +
+      " WHERE id = " +
       id +
-      "';";
+      ";";
   }
 
   client.query(query, (err, result) => {
