@@ -25,13 +25,13 @@ export const createDish = (req, res) => {
       "')";
   } else {
     query =
-      "UPDATE public.dishes SET name=" +
+      "UPDATE public.dishes SET name='" +
       name +
-      ", notes=" +
+      "', notes='" +
       notes +
-      " WHERE id = " +
+      "' WHERE id = '" +
       id +
-      ";";
+      "';";
   }
 
   client.query(query, (err, result) => {
