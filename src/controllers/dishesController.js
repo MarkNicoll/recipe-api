@@ -14,7 +14,10 @@ export const createDish = (req, res) => {
   const notes =dish.notes;
 
     client.query(
-      "REPLACE INTO dishes(id, name, notes)VALUES('" + id + "','" + name + "','" + notes + "')",
+      "REPLACE INTO dishes(id, name, notes)VALUES('" + id + "','" + name + "','" + notes + "')"
+      + "ON CONFLICT (id) DO UPDATE "
+      + "SET name = excluded.name"
+      + "SET notes = excluded.notes",
       (err, result) => {
         console.log(err)
         console.log(result)
