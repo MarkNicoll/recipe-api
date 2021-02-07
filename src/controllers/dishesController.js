@@ -16,12 +16,16 @@ export const createDish = (req, res) => {
 
   if (!id) {
     query =
-      "INSERT INTO dishes(name, notes)VALUES(" + nameQueryParam + notesQueryParam + ")";
+      "INSERT INTO dishes(name, notes)VALUES(" +
+      nameQueryParam +
+      notesQueryParam +
+      ")";
   } else {
     query =
       "UPDATE public.dishes SET name=" +
       nameQueryParam +
-      ", notes=" + notesQueryParam +
+      ", notes=" +
+      notesQueryParam +
       " WHERE id = " +
       id +
       ";";
