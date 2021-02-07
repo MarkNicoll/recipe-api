@@ -16,9 +16,7 @@ export const createDish = (req, res) => {
 
   if (!id) {
     query =
-      "INSERT INTO dishes(id, name, notes)VALUES('" +
-      id +
-      "','" +
+      "INSERT INTO dishes(name, notes)VALUES('"
       name +
       "','" +
       notes +
