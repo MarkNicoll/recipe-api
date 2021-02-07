@@ -16,6 +16,8 @@ export const createDish = (req, res) => {
     client.query(
       "REPLACE INTO dishes(id, name, notes)VALUES('" + id + "','" + name + "','" + notes + "')",
       (err, result) => {
+        console.log(err)
+        console.log(result)
         if (err) res.send(err.toString());
         if (result) res.send(result.rows);
       }
